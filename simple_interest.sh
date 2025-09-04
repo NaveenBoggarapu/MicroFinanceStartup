@@ -1,19 +1,15 @@
 #!/bin/bash
 
-# Function to calculate simple interest
-calculate_simple_interest() {
-    local principal=$1
-    local rate=$2
-    local time=$3
+# Prompt user for input
+echo "Enter the principal:"
+read p
+echo "Enter rate of interest per year (in percentage):"
+read r
+echo "Enter time period in years:"
+read t
 
-    # Calculate simple interest
-    local interest=$(echo "scale=2; ($principal * $rate * $time) / 100" | bc)
-    echo "The simple interest is: $interest"
-}
+# Calculate simple interest
+s=$(expr $p \* $r \* $t / 100)
 
-# Example usage
-principal_amount=1000  # Principal amount in currency
-annual_rate=5          # Annual interest rate in percentage
-time_period=3          # Time in years
-
-calculate_simple_interest $principal_amount $annual_rate $time_period
+# Display the result
+echo "The simple interest is: $s"
